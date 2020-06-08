@@ -18,6 +18,7 @@ namespace BigSchool1.Models
         public Category Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }
+        public string LecturerID { get; internal set; }
     }
 
     
