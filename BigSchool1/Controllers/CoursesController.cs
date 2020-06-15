@@ -15,6 +15,16 @@ namespace BigSchool1.Controllers
             _dbContext = new ApplicationDbContext();
         }
         [Authorize]
+        public ActionResult Create()
+        {
+            var viewModel = new CourseViewModel
+            {
+                Categories = _dbContext.Categories.ToList()
+            };
+            return View(viewModel);
+        }
+
+        [Authorize]
         [HttpPost]
         public ActionResult Create(CourseViewModel viewModel)
         {
@@ -25,6 +35,7 @@ namespace BigSchool1.Controllers
                 CategoryId = viewModel.Category,
                 Place = viewModel.Place
             };
+
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
 
