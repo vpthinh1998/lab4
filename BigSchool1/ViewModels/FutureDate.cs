@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 
-namespace BigSchool1.ViewModels
+namespace BigSchool.ViewModels
 {
     public class FutureDate : ValidationAttribute
     {
@@ -17,7 +17,6 @@ namespace BigSchool1.ViewModels
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out dateTime);
-
             return (isValid && dateTime > DateTime.Now);
         }
     }
